@@ -1,0 +1,267 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "solver", "type": "address" }
+    ],
+    "name": "AlreadyParticipant",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      {
+        "internalType": "enum BountyFactory.BountyState",
+        "name": "state",
+        "type": "uint8"
+      }
+    ],
+    "name": "BountyAlreadyClosed",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "BountyAlreadyExists",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "BountyAlreadyFunded",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "address", "name": "issuer", "type": "address" }
+    ],
+    "name": "BountyIssuer",
+    "type": "error"
+  },
+  { "inputs": [], "name": "BountyNotFound", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "BountyNotFunded",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" }
+    ],
+    "name": "FundsMismatch",
+    "type": "error"
+  },
+  { "inputs": [], "name": "InsufficientBalance", "type": "error" },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "NotBountyIssuer",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "address", "name": "solver", "type": "address" }
+    ],
+    "name": "NotParticipant",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "bountyId",
+        "type": "string"
+      }
+    ],
+    "name": "BountyClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "id", "type": "string" },
+          { "internalType": "address", "name": "issuer", "type": "address" },
+          { "internalType": "uint256", "name": "value", "type": "uint256" },
+          { "internalType": "bool", "name": "valueLocked", "type": "bool" },
+          {
+            "internalType": "enum BountyFactory.BountyState",
+            "name": "state",
+            "type": "uint8"
+          },
+          { "internalType": "string", "name": "metadata", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct BountyFactory.Bounty",
+        "name": "bounty",
+        "type": "tuple"
+      }
+    ],
+    "name": "BountyCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "bountyId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "BountyFunded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "bountyId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "solver",
+        "type": "address"
+      }
+    ],
+    "name": "BountyResolved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "bountyId",
+        "type": "string"
+      },
+      {
+        "components": [
+          { "internalType": "address", "name": "solver", "type": "address" },
+          { "internalType": "string", "name": "metadata", "type": "string" }
+        ],
+        "indexed": false,
+        "internalType": "struct BountyFactory.Proposition",
+        "name": "proposition",
+        "type": "tuple"
+      }
+    ],
+    "name": "PropositionCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "string", "name": "metadata", "type": "string" }
+    ],
+    "name": "addProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "bounties",
+    "outputs": [
+      { "internalType": "string", "name": "id", "type": "string" },
+      { "internalType": "address", "name": "issuer", "type": "address" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" },
+      { "internalType": "bool", "name": "valueLocked", "type": "bool" },
+      {
+        "internalType": "enum BountyFactory.BountyState",
+        "name": "state",
+        "type": "uint8"
+      },
+      { "internalType": "string", "name": "metadata", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "closeBounty",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "id", "type": "string" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" },
+      { "internalType": "string", "name": "metadata", "type": "string" }
+    ],
+    "name": "createBounty",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "id", "type": "string" },
+      { "internalType": "uint256", "name": "value", "type": "uint256" },
+      { "internalType": "string", "name": "metadata", "type": "string" }
+    ],
+    "name": "createBountyWithLockedValue",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" }
+    ],
+    "name": "fundBounty",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "address", "name": "solver", "type": "address" }
+    ],
+    "name": "markResolved",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "bountyId", "type": "string" },
+      { "internalType": "address", "name": "solver", "type": "address" }
+    ],
+    "name": "propositions",
+    "outputs": [
+      { "internalType": "address", "name": "solver", "type": "address" },
+      { "internalType": "string", "name": "metadata", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

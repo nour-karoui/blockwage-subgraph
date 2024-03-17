@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "BountyFactory": {
+      "address": "0x4736364E785D15806B5E4aFbe35fb793e2fd7D02",
+      "startBlock": 5434160
+    }
+  }
+}

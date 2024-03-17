@@ -1,0 +1,21 @@
+{
+  "name": "blockwage-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "env-cmd -x -f .env graph deploy blockwage-subgraph --version-label v0.0.3 --node https://subgraphs.alchemy.com/api/subgraphs/deploy   --deploy-key \\$DEPLOY_KEY --ipfs https://ipfs.satsuma.xyz",
+    "create-local": "graph create --node http://localhost:8020/ nour-karoui/blockwage-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ nour-karoui/blockwage-subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 nour-karoui/blockwage-subgraph",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.67.2",
+    "@graphprotocol/graph-ts": "^0.32.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "matchstick-as": "0.5.0"
+  }
+}

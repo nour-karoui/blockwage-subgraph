@@ -1,0 +1,17 @@
+type Bounty @entity {
+  id: String! # string
+  issuer: Bytes! # address
+  value: BigInt! # uint256
+  valueLocked: Boolean! # bool
+  state: Int! # {"OPEN":0,"CLOSED":1,"RESOLVED":2}
+  metadata: String! # string
+  resolver: Bytes # address
+  proposals: [Proposition!]! @derivedFrom(field: "bounty")
+}
+
+type Proposition @entity {
+  id: String! # string
+  solver: Bytes! # address
+  metadata: String! # string
+  bounty: Bounty! # Bounty
+}
